@@ -2,7 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const logger = require('morgan');
 const cors = require("cors");
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const indexRouter = require('./routes/index');
 
 // Express app setup
@@ -19,11 +19,11 @@ app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(helmet());
+// app.use(helmet());
 
 // Custom helmet options - Setup for preferring https over http & allow cross origin policies
-app.use(helmet.hsts({maxAge: 123456,}));
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+// app.use(helmet.hsts({maxAge: 123456,}));
+// app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 // Route setup
 app.use('/', indexRouter);
